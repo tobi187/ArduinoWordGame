@@ -10,15 +10,15 @@ A little German Word Game on the Arduino where get different words. The Charract
 
 ## PinSetup
 
-| Arduino | LCD       |
-|---------|-----      |
-|   5V    | VCC       |
+| Arduino | LCD       |         | Arduino | Joystick  |
+|---------|-----      |         |---------|-----------|
+|   5V    | VCC       |         |   GND   |   GND     |
 |   GND   | GND       |
 |   SDA   | SDA/20    |
 |   SCL   | SCL/21    |
-| Arduino | Joystick  |
-|---------|-----------|
-|   GND   |   GND     |
+
+
+
 |   5V    |   5V      |
 |   A1    |   VRx     |
 |   A0    |   VRy     |
