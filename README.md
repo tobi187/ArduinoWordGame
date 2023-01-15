@@ -27,5 +27,6 @@ A little German Word Game on the Arduino where get different words. The Charract
 
 
 | Arduino |  Buzzer   |
+|---------|-----------|
 |   GND   |     -     |
 | d8(PWM) |     +     |
