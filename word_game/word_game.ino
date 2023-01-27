@@ -11,6 +11,7 @@ int sAudioPin = 8;
 int joy_x = 1; // analog 
 int joy_y = 0; // analog
 int joy_press = 34; // digital
+int progressLed = 6; // analog -- choose other port
 
 // sounds
 int NOTE_A5 = 880;
@@ -78,8 +79,6 @@ void loop() {
   }
   delay(100);
 }
-
-
 
 void printWin() {
   playWinSound();
@@ -174,11 +173,16 @@ void getWord() {
 
 bool isCorrect() {
   if (sFirst != -1) return false;
+  int aC=0;
   for (int i = 0; i < wordLen; i++) {
-    if (current[i] != words4[correct][i]) {
-      return false;
+    if (current[i] == words4[correct][i]) {
+      aC++;
     }
   }
+
+  analogWrite(progressLed, 255 / (wordLen-1) * aC);
+
+  if (aC < wordLen) return false;
   winCount++;
   return true;
 }
