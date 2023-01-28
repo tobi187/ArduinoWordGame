@@ -7,11 +7,11 @@ LiquidCrystal_I2C lcd(0x27, 20, 4);
 char words4[32][20] = {"aber", "adel", "affe", "ahoi", "fabrik", "jaguar", "kacken", "radeln", "nachbarn", "sachlage", "facebook", "babyphon", "dabehalten", "debatieren", "yachthafen", "rabenvater", "jackenkragen", "nachbarinsel", "tabakkonzern", "zackenbarsch", "tabakplantagen", "ultramarinblau", "abenteuerreise", "silvesterabend", "tourismusbranche", "mehrfamilienhaus", "liebesgeschichte", "jahrtausendwende", "schaubudenbesitzer", "sicherheitsabstand", "baumwollbekleidung", "hochleistungssport"};
 
 // pins
-int sAudioPin = 8;
+int sAudioPin = 8; // digital
 int joy_x = 1; // analog 
 int joy_y = 0; // analog
 int joy_press = 34; // digital
-int progressLed = 6; // analog -- choose other port
+int progressLed = 7; // pwm (digital)
 
 // sounds
 int NOTE_A5 = 880;
@@ -38,6 +38,7 @@ void setup() {
   lcd.backlight();
   lcd.clear();
   Serial.begin(9600);
+  pinMode(progressLed, OUTPUT);
   getWord();
 }
 
@@ -81,7 +82,7 @@ void loop() {
 }
 
 void printWin() {
-  playWinSound();
+  //playWinSound();
   lcd.clear();
   char win[8] = "Gewonnen";
   int curs = 6;
